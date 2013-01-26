@@ -23,4 +23,4 @@ requires:
   Test::LongString: 0
   Test::More: 0
   XML::LibXML: 1.99
-version: 1.03
+version: 1.04

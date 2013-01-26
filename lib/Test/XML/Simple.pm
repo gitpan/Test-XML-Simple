@@ -3,7 +3,7 @@ package Test::XML::Simple;
 use strict;
 use warnings;
 
-our $VERSION = '1.03';
+our $VERSION = '1.04';
 
 use Test::Builder;
 use Test::More;
@@ -190,10 +190,10 @@ Test::XML::Simple - easy testing for XML
 
 =head1 SYNOPSIS
 
-  use Test::XML::Simple tests=>5;
+  use Test::XML::Simple tests => 8;
 
+  # pass string with XML as argument
   xml_valid $xml, "Is valid XML";
-  xml_valid $xml_doc_obj, "Is valid XML";
   xml_node $xml, "/xpath/expression", "specified xpath node is present";
   xml_is, $xml, '/xpath/expr', "expected value", "specified text present";
   xml_like, $xml, '/xpath/expr', qr/expected/, "regex text present";
@@ -202,6 +202,7 @@ Test::XML::Simple - easy testing for XML
   # XML::LibXML::Document can be passed as argument too
   #  that allow you to test a big documents with several tests
   my $xml_doc = XML::LibXML->createDocument( '1.0' );
+  xml_valid $xml_doc, 'Is valid XML';
   xml_node $xml_doc, '/xpath/expression', 'specified xpath node is present';
   xml_like, $xml_doc, '/xpath/expression', qr/expected result/, 'regex present';
 
@@ -271,7 +272,7 @@ Joe McMahon, E<lt>mcmahon@cpan.orgE<gt>
 
 =head1 LICENSE
 
-Copyright (c) 2005 by Yahoo! and Joe McMahon
+Copyright (c) 2005-2013 by Yahoo! and Joe McMahon
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself, either Perl version 5.6.1 or, at
@@ -279,7 +280,6 @@ your option, any later version of Perl 5 you may have available.
 
 =head1 SEE ALSO
 
-L<XML::XPath>, L<Test::More>, L<Test::Builder>.
-
+L<XML::LibXML>, L<Test::More>, L<Test::Builder>.
 
 =cut
